@@ -1,7 +1,5 @@
 package Main_package;
 import Train_package.Train;
-
-//import java.io.Console;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -11,7 +9,6 @@ public class Main {
    public static void main(String[] args)
     {
         Main m = new Main();
-        //boolean isActive = true;
         while (true)
         {
             System.out.println("Add = 1, GetList = 2, Exit = 3");
@@ -49,8 +46,6 @@ public class Main {
         int NumberOfSeatsPlaceCard = scanner.nextInt();
         System.out.println("\nNumberOfSeatsSuite = ");
         int NumberOfSeatsSuite = scanner.nextInt();
-        // System.out.println("\nNumberOfSeatsGeneral = ");
-        // int NumberOfSeatsGeneral = scanner.nextInt();
         int NumberOfSeatsGeneral = NumberOfSeatsCompartment + NumberOfSeatsPlaceCard + NumberOfSeatsSuite;
         trainList.add(new Train(Destination, TrainNumber, ShippingTime, NumberOfSeatsGeneral, NumberOfSeatsCompartment, NumberOfSeatsPlaceCard,NumberOfSeatsSuite));
     }
