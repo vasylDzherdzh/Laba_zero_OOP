@@ -1,5 +1,5 @@
 package Main_package;
-import Train_package.Train;
+import train_package.Train;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -8,19 +8,21 @@ public class Main {
    private ArrayList<Train> trainList = new ArrayList<>();
    public static void main(String[] args)
     {
-        Main m = new Main();
+        Main menu = new Main();
         while (true)
         {
             System.out.println("Add = 1, GetList = 2, Exit = 3");
-            Scanner s = new Scanner(System.in);
-            int operation = s.nextInt();
+            Scanner scanner = new Scanner(System.in);
+            int operation = scanner.nextInt();
+            scanner.nextLine();
+
 
             switch (operation){
                 case (1):
-                    m.addTrain();
+                    menu.addTrain();
                     break;
                 case(2):
-                    m.getTrainList();
+                    menu.getTrainList();
                     break;
                 case(3):
                     System.exit(1);
@@ -51,19 +53,19 @@ public class Main {
     }
     private  void getTrainList(){
 
-        Scanner s = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
         System.out.println("List = 1, Search = 2");
-        int operation2 = s.nextInt();
+        int operation2 = scanner.nextInt();
        if (operation2==1) {
            for (int i = 0; i < trainList.size(); i++) {
                System.out.println(trainList.get(i).toString());
            }
        }
            if (operation2 == 2) {
-               oper2();
+               searchOptions();
            }
     }
-    public void oper2()
+    public void searchOptions()
     {
         System.out.println("SearchDestination = 1, SearchTime = 2,SearchGeneral = 3");
         Scanner scanner = new Scanner(System.in);
@@ -81,16 +83,16 @@ public class Main {
                 break;
         }
     }
-    public  String SearchDestination()
+    public  String searchDestination()
     {
         System.out.println("SearchDestination = ");
-        Scanner k = new Scanner(System.in);
-        String optionDestination = k.nextLine();
+        Scanner scanner = new Scanner(System.in);
+        String optionDestination = scanner.nextLine();
         return optionDestination;
     }
     public  void optionSearchDestination()
     {
-        String SeaDes = SearchDestination();
+        String SeaDes = searchDestination();
         for(int i = 0; i < trainList.size(); i++) {
 
             if (trainList.get(i).getDestination().contains(SeaDes))
@@ -102,12 +104,12 @@ public class Main {
     }
     public void optionSearchTime()
     {
-        String SeaDes = SearchDestination();
-        Scanner s = new Scanner(System.in);
+        String searchDestination = searchDestination();
+        Scanner scanner = new Scanner(System.in);
         System.out.println(" SearchTime = ");
-         int optionTime = s.nextInt();
+         int optionTime = scanner.nextInt();
         for(int i = 0; i < trainList.size(); i++) {
-            if( trainList.get(i).getDestination().contains(SeaDes) && trainList.get(i).getShippingTime() == optionTime)
+            if( trainList.get(i).getDestination().contains(searchDestination) && trainList.get(i).getShippingTime() == optionTime)
             {
 
                     System.out.println(trainList.get(i).toString());
@@ -118,12 +120,12 @@ public class Main {
     }
     public  void optionSearchGeneral()
     {
-        String SeaDes = SearchDestination();
-        Scanner s = new Scanner(System.in);
+        String searchDestination = searchDestination();
+        Scanner scanner = new Scanner(System.in);
         System.out.println(" SearchGeneral = ");
-        int optionGeneral = s.nextInt();
+        int optionGeneral = scanner.nextInt();
         for(int i = 0; i < trainList.size(); i++) {
-            if(trainList.get(i).getDestination().equals(SeaDes) & trainList.get(i).NumberOfSeatsGeneral() == optionGeneral)
+            if(trainList.get(i).getDestination().equals(searchDestination) & trainList.get(i).NumberOfSeatsGeneral() == optionGeneral)
             {
                 System.out.println(trainList.get(i).toString());
             }

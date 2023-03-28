@@ -1,6 +1,5 @@
-package Train_package;
-
-public class Train
+package train_package;
+public class train
 {
     private String Destination;
     private int TrainNumber;
@@ -14,7 +13,7 @@ public class Train
 
 
 
-    public Train(String Destination, int TrainNumber, int ShippingTime, int NumberOfSeatsGeneral, int NumberOfSeatsCompartment, int NumberOfSeatsPlaceCard, int NumberOfSeatsSuite) {
+    public train(String Destination, int TrainNumber, int ShippingTime, int NumberOfSeatsGeneral, int NumberOfSeatsCompartment, int NumberOfSeatsPlaceCard, int NumberOfSeatsSuite) {
         this.Destination = Destination;
         this.TrainNumber = TrainNumber;
         this.ShippingTime = ShippingTime;
